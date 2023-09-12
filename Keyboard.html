@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+.kb{
+    width: 800px;
+    height: 560px;
+    background-color: rgb(18, 14, 36);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.kb div{
+    color: white;
+    font-size: 23px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 30px;
+    box-shadow:  0 0 2px 1px rgb(37, 45, 46);
+
+    
+    
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0012);
+    line-height: 1.71vh;
+    outline: none;
+    animation: light 5s linear infinite;
+}
+@keyframes light{
+    /* 0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%{
+        color:rgb(18, 42, 65);
+        text-shadow: none; 
+    }*/
+    18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%{
+        color: white;
+        text-shadow: 0 0 10px #03bcf4,
+        0 0 20px #03bcf4,
+        0 0 40px #03bcf4,
+        0 0 80px #03bcf4,
+        0 0 85px #03bcf4,
+        0 0 90px #03bcf4,
+        0 0 95px #03bcf4,
+        0 0 100px #03bcf4,
+        0 0 160px #03bcf4,
+        0 0 320px #03bcf4,
+        0 0 500px #03bcf4,
+        
+        0 0 650px #03bcf4
+    }
+
+}
+.dp{
+
+    grid-column: 1/11;
+}
+textarea{
+    animation: light 5s linear infinite;
+}
+@keyframes light{
+     
+    18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%{
+        color: white;
+        text-shadow: 0 0 10px #03bcf4,
+        0 0 20px #03bcf4,
+        0 0 40px #03bcf4,
+        0 0 80px #03bcf4,
+        0 0 85px #03bcf4,
+        0 0 90px #03bcf4
+       
+    }
+}
+.dp textarea{
+    color: rgb(44, 13, 13);
+    width: 100%;
+    font-size: 20px;
+    height: 90%;
+    background: rgb(11, 29, 28);
+    box-sizing: border-box;
+    outline: 0px;
+    border: 0px;
+}
+
+.kb div:hover{
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="kb">
+        <div class="dp"><textarea  readonly style="padding-top: 0px;" id="t1" cols="30" rows="5"></textarea></div>
+        <div onclick="func(1)">1</div>
+        <div onclick="func(2)">2</div>
+        <div onclick="func(3)">3</div>
+        <div onclick="func(4)">4</div>
+        <div onclick="func(5)">5</div>
+        <div onclick="func(6)">6</div>
+        <div onclick="func(7)">7</div>
+        <div onclick="func(8)">8</div>
+        <div onclick="func(9)">9</div>
+        <div onclick="func(0)">0</div>
+
+
+        <div onclick="func('a')">A</div>
+        <div onclick="func('b')">b</div>
+        <div onclick="func('c')">c</div>
+        <div onclick="func('d')">d</div>
+        <div onclick="func('e')">e</div>
+        <div onclick="func('f')">f</div>
+        <div onclick="func('g')">g</div>
+        <div onclick="func('h')">h</div>
+        <div onclick="func('i')">i</div>
+        <div onclick="func('j')">j</div>
+        <div onclick="func('k')">k</div>
+        <div onclick="func('l')">l</div>
+        <div onclick="func('m')">m</div>
+        <div onclick="func('n')">n</div>
+        <div onclick="func('o')">o</div>
+        <div onclick="func('p')">p</div>
+        <div onclick="func('q')">q</div>
+        <div onclick="func('r')">r</div>
+        <div onclick="func('s')">s</div>
+        <div onclick="func('t')">t</div>
+        <div onclick="func('u')">u</div>
+        <div onclick="func('v')">v</div>
+        <div onclick="func('w')">w</div>
+        <div onclick="func('x')">x</div>
+        <div onclick="func('y')">y</div>
+        <div onclick="func('z')">z</div>
+        <div onclick="bc()"><i class="fa-solid fa-delete-left" style="color: #040c1a;"></i></div>
+        <div onclick="del('dl')">Del</div>
+        <div onclick="cap()" id="cps">caps</div>
+        <div onclick="etr()"><i class="fa-solid fa-turn-up fa-rotate-270" style="color: #04070b;"></i></div>
+        <div onclick="ky()">CTRL</div>
+        <div onclick="ky()"><i class="fa-brands fa-windows" style="color: #101114;"></i></div>
+        <div class="spce" onclick="ky()">&nbsp;&nbsp;&nbsp;</div>
+        <div onclick="ky()"><i class="fa-solid fa-arrow-up" style="color: #cdd6e5;"></i></div>
+        <div onclick="ky()">ALt</div>
+    </div>
+    <script>
+        let rs=""
+        let tr=document.getElementById("t1")
+        cp=false
+        function cap(){
+            if(!cp){
+            cp= true
+            cps=document.getElementById("cps").innerHTML="U" }
+            else{
+                cp=false
+                cps=document.getElementById("cps").innerHTML='L'
+            }
+            
+        }
+        function func(d){
+            if (cp){
+            rs=rs+d.toUpperCase()
+            tr.value=rs 
+
+        }
+        if (! cp){
+            rs=rs+d
+            tr.value=rs
+        }
+        
+
+        }
+        function del(){
+            rs=""
+            tr.value=""
+        }
+        let bc=()=>{
+            rs=rs.slice(0,rs.length-1)
+            tr.value=rs
+        }
+    </script>
+</body>
+</html>
